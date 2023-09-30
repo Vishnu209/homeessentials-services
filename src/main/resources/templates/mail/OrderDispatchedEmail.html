@@ -1,0 +1,165 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>Order Dispatched</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
+		table.main {
+			width: 650px;
+			margin: 20px auto 0px auto;
+		}
+
+		.logo-bar {
+			background: #FFF;
+			text-align: center;
+			padding: 15px 0px;
+		}
+
+		.icons-box {
+			width: 160px;
+			margin: 0px auto;
+			text-align: center;
+		}
+
+		.icons {
+			width: 16px;
+			height: 16px;
+			margin: 5px auto;
+			padding: 0px 8px;
+			float: left;
+		}
+
+		.text-box {
+			background: #FFF;
+			padding: 15px;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 14px;
+			color: #000;
+			line-height: 25px;
+			height: 400px;
+			vertical-align: middle;
+		}
+
+		h4 {
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 25px;
+			color: #000;
+			font-weight: 600;
+		}
+
+		.blue-btn {
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			margin-top: 20px;
+			border: none;
+			border-radius: 1.5rem;
+			background: #0062cc;
+			color: #fff;
+			font-weight: 200;
+			min-width: 150px;
+			width: auto;
+			padding: 10px 20px;
+			cursor: pointer;
+			margin: 0 auto;
+			text-transform: uppercase;
+			font-weight: 600;
+			letter-spacing: 1px;
+		}
+
+		.footer {
+			background: #1966a1;
+			height: auto;
+			padding: 25px 8px;
+			text-align: center;
+			color: #FFF;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 16px;
+			line-height: 30px;
+		}
+
+		.footer-text {
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 14px;
+			text-align: center;
+			color: #FFF;
+			padding: 15px;
+		}
+
+		#t01 {
+			width: 100%;
+			background-color: rgb(255, 255, 255);
+			display: inline-block;
+		}
+	</style>
+</head>
+
+<body>
+	<table width="650" border="0" cellspacing="0" cellpadding="0" class="main">
+		<tbody>
+			<tr>
+				<td class="topbar"></td>
+			</tr>
+
+			<tr>
+				<td>
+
+					<p style="font-weight:bold" th:text="#{email.order.greeting(${user.firstName})}">
+						Dear</p>
+
+					<p style="font-weight:bold"> Your order <span style="color:#000;font-weight:bold"
+							th:text="#{email.order.number(${order.orderNumber})}"></span> has been dispatched.</p>
+					<p style="font-weight:bold" th:text="#{email.order.update.email(${user.email})}"></p>
+					<p style="font-weight:bold" th:text="#{email.order.update.mobile(${user.mobileno})}"></p>
+
+					<div style="text-align: left; font-weight: 600;">
+
+						<!--<p style="font-weight:bold"> Your estimated delivery date is:<span
+								style="color:#000;font-weight:bold"
+								th:text="#{email.order.orderdate(${order.orderDateForEmail})}"></span></p>-->
+						<p style="font-weight:bold"> Your package was sent to:
+							<table id="t01">
+								<tr th:each="order : ${order.shippingDetails}">
+									<span style="font-style: italic;"
+										th:text="${order.firstName + ' ' + order.lastName}">
+										Shipping Details</span>
+								</tr>
+								<tr th:each="order : ${order.shippingDetails}">
+									<td style="font-style: italic;" th:text="${order.address_1}">Shipping Details</td>
+								</tr>
+								<tr th:each="order : ${order.shippingDetails}">
+									<td style="font-style: italic;" th:text="${order.address_2}">Shipping Details</td>
+								</tr>
+								<tr th:each="order : ${order.shippingDetails}">
+									<td style="font-style: italic;" th:text="${order.city}">Shipping Details</td>
+								</tr>
+								<tr th:each="order : ${order.shippingDetails}">
+									<td style="font-style: italic;" th:text="${order.state + ' , ' + order.country}">
+										Shipping Details</td>
+								</tr>
+								<tr th:each="order : ${order.shippingDetails}">
+									<td style="font-style: italic;" th:text="${order.postcode}">Shipping Details</td>
+								</tr>
+							</table>
+						</p>
+
+						<p style="font-weight:bold">if you need to manage your orders, please visit Orders on
+							<span><a th:href= "#{company.url}"><span th:text="#{company.url}"></span></a></span></p>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p style="color: #434343; text-align: left; font-size: 14px;">
+						<p style="font-weight:bold"> Regards,<br> <span th:text="#{config.company.name}"></span> <br>
+							<span><a th:href= "#{company.url}"><span th:text="#{company.url}"></span></a></span>
+							<br></p>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+</body>
+
+</html>

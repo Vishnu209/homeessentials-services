@@ -1,0 +1,147 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
+		body {
+			background: #f1f1f1 url("../../static/images/footer-dark.jpg") repeat-x bottom;
+		}
+
+		table.main {
+			width: 650px;
+			margin: 20px auto 0px auto;
+		}
+
+		.logo-bar {
+			background: #FFF;
+			text-align: center;
+			padding: 15px 0px;
+		}
+
+		.icons-box {
+			width: 160px;
+			margin: 0px auto;
+			text-align: center;
+		}
+
+		.icons {
+			width: 16px;
+			height: 16px;
+			margin: 5px auto;
+			padding: 0px 8px;
+			float: left;
+		}
+
+		.text-box {
+			background: #FFF;
+			padding: 15px;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 14px;
+			color: #000;
+			line-height: 25px;
+			height: 400px;
+			vertical-align: middle;
+		}
+
+		h4 {
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 25px;
+			color: #000;
+			font-weight: 600;
+		}
+
+		.blue-btn {
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			margin-top: 20px;
+			border: none;
+			border-radius: 1.5rem;
+			background: #0062cc;
+			color: #fff;
+			font-weight: 200;
+			min-width: 150px;
+			width: auto;
+			padding: 10px 20px;
+			cursor: pointer;
+			margin: 0 auto;
+			text-transform: uppercase;
+			font-weight: 600;
+			letter-spacing: 1px;
+		}
+
+		.footer {
+			background: #1966a1;
+			height: auto;
+			padding: 25px 8px;
+			text-align: center;
+			color: #FFF;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 16px;
+			line-height: 30px;
+		}
+
+		.footer-text {
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+			font-size: 14px;
+			text-align: center;
+			color: #FFF;
+			padding: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<table width="650" border="0" cellspacing="0" cellpadding="0" class="main">
+		<tbody>
+			<tr>
+				<td class="topbar"></td>
+			</tr>
+			<tr>
+				<td class="logo-bar"><img src="../../static/images/email-logo.png" th:src="|cid:${_logo}|" />
+			</tr>
+			<tr>
+				<td>
+
+					<!--<p style="font-weight:bold" th:text="#{email.activation.greeting(${user.firstName})}">
+						Dear</p>-->
+						<p style="font-weight:bold"> Dear Admin ,</p>
+
+					<p style="font-weight:bold"> Please be informed that your account with <span th:text="#{config.company.name}"></span> is registered as
+						Admin. Kindly login and create the product categories.<br> <br>
+						Following are the login details.</p>
+
+					<div style="text-align: left; font-weight: 600;">
+
+						<p style="font-weight:bold" th:text="#{email.activation.success.email(${user.email})}">
+							email
+						</p>
+						<p style="font-weight:bold" th:text="#{email.activation.success.username(${user.username})}"></p>
+
+						<p style="font-weight:bold" th:text="#{email.activation.success.password(${user.adminPassword})}">
+						</p>
+						<br><br>
+
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p style="color: #434343; text-align: left; font-size: 14px;">
+						<p style="font-weight:bold"> Regards,<br><span th:text="#{config.company.name}"></span><br>
+							<span><a th:href= "#{company.url}"><span th:text="#{company.url}"></span></a></span>
+							<br></p>
+				</td>
+			</tr>
+			<tr>
+
+			</tr>
+
+
+		</tbody>
+	</table>
+</body>
+
+</html>

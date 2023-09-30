@@ -1,0 +1,82 @@
+spring:
+  data:
+   mongodb: 
+      uri: #paste your mongodb uri here
+   
+  messages:
+   basename: i18n/messages
+  thymeleaf:
+    mode: HTML
+      
+logging:
+  level:
+     org.springframework.web: DEBUG
+
+---
+spring:
+ servlet:
+  multipart: 
+    max-file-size: 256MB
+    max-request-size: 256MB
+    enabled: true
+    
+---
+#Email configuration
+mail:
+ host: smtp.gmail.com
+ port: 465
+ protocol: smtps
+
+ username : #mail id
+ password : #mail password
+
+ transport:
+  protocol: smtps
+ smtps:
+   auth: true
+   starttls:
+    enable: true
+   timeout: 2000
+ debug: true 
+ from: # from mail
+ base-url: http://localhost:4200
+ base-url-heroku: https://homeessentials.herokuapp.com
+ bcc: #  
+
+company:
+    name: Home Needs
+
+server:
+ port: ${PORT:8010}
+ 
+amazonProperties:
+    endpointUrl: #*******************
+    accessKey: #********************
+    secretKey: #**************
+    region: #***********
+    bucketName: #********
+
+paytm.payment:
+ sandbox:
+  merchantId: #*******************
+  merchantKey: #******************
+  channelId: WEB
+  website: WEBSTAGING
+  industryTypeId: Retail
+  paytmUrl: https://securegw-stage.paytm.in/order/process
+  callbackUrl: http://localhost:8080/paytm/paymentResponse
+  details: 
+   MID: ${paytm.payment.sandbox.merchantid}
+   CHANNEL_ID: ${paytm.payment.sandbox.channelid}
+   INDUSTRY_TYPE_ID: ${paytm.payment.sandbox.industrytypeid}
+   WEBSITE: ${paytm.payment.sandbox.website}
+   CALLBACK_URL: ${paytm.payment.sandbox.callbackUrl}
+---   
+
+paytm:
+ mobile: #*******************
+ email: #***********************    
+ 
+razorpay:
+ keyId: #********************
+ keySecret: #*****************
