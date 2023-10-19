@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.home.essentials</groupId>
 	<artifactId>homeessentials-services</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>homeessentials-services</name>
 	<description>Services for Ecommerce app using Spring boot and Mongodb
 	</description>
