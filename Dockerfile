@@ -1,5 +1,15 @@
-FROM adoptopenjdk:11-jre-hotspot
-WORKDIR /app
-COPY target/homeessentials-services-0.1.jar app.jar
+#
+# Build stage
+#
+FROM maven:3.8.2-jdk-11 AS build
+COPY . .
+RUN mvn clean install -DskipTests
+
+#
+# Package stage
+#
+FROM openjdk:11-jdk-slim
+COPY --from=build /target/app-0.1.jar demo.jar
+# ENV PORT=8080
 EXPOSE 8080
-CMD ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","demo.jar"]
