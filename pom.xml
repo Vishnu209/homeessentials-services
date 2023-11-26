@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.home.essentials</groupId>
-	<artifactId>homeessentials-services</artifactId>
+	<artifactId>app</artifactId>
 	<version>0.1</version>
 	<name>homeessentials-services</name>
 	<description>Services for Ecommerce app using Spring boot and Mongodb
