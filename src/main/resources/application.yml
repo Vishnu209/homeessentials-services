@@ -1,7 +1,7 @@
 spring:
   data:
    mongodb: 
-      uri: #paste your mongodb uri here
+      uri: ${DATABASE_URL}
    
   messages:
    basename: i18n/messages
